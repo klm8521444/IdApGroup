@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_cafe"
+            android:checked="true"
+            android:icon="@drawable/ic_cafe"
+            android:title="@string/first_item"/>
+        <item
+            android:id="@+id/navigation_play"
+            android:icon="@drawable/ic_play"
+            android:title="@string/second_item_tabbed"/>
+        <item
+            android:id="@+id/navigation_maps"
+            android:icon="@drawable/ic_maps"
+            android:title="@string/third_item"/>
+    </group>
+</menu>
