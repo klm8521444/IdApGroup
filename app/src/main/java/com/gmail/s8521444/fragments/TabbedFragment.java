@@ -1,20 +1,25 @@
 package com.gmail.s8521444.fragments;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.gmail.s8521444.R;
-import com.gmail.s8521444.adapters.TabsAdapter;
 
 public class TabbedFragment extends Fragment {
 
-    public static TabbedFragment newInstance() {
-        return new TabbedFragment();
+    private static final String ARG_NUMBER = "number";
+    private int mNumber;
+
+    public static TabbedFragment newInstance(int number) {
+        TabbedFragment fragment = new TabbedFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_NUMBER, number);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     public TabbedFragment() {
@@ -22,15 +27,18 @@ public class TabbedFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.fragment_tabbed, container, false);
-
-        final TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
-        final ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.view_pager);
-        viewPager.setAdapter(new TabsAdapter(getChildFragmentManager(), getActivity()));
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setupWithViewPager(viewPager);
-
-        return rootView;
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mNumber = getArguments().getInt(ARG_NUMBER);
+        }
     }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        ((TextView) view.findViewById(R.id.number)).setText(String.valueOf(mNumber));
+        return view;
+    }
+
 }

@@ -9,19 +9,19 @@ import android.widget.TextView;
 
 import com.gmail.s8521444.R;
 
-public class SimpleFragment extends Fragment {
+public class SearchFragment extends Fragment {
     private static final String ARG_NUMBER = "number";
     private int mNumber;
 
-    public static SimpleFragment newInstance(int number) {
-        SimpleFragment fragment = new SimpleFragment();
+    public static SearchFragment newInstance(int number) {
+        SearchFragment fragment = new SearchFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_NUMBER, number);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public SimpleFragment() {
+    public SearchFragment() {
         // Required empty public constructor
     }
 
@@ -35,7 +35,7 @@ public class SimpleFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_simple, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
         ((TextView) view.findViewById(R.id.number)).setText(String.valueOf(mNumber));
         return view;
     }

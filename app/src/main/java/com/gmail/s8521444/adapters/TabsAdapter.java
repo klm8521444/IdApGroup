@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.gmail.s8521444.R;
-import com.gmail.s8521444.fragments.SimpleFragment;
+import com.gmail.s8521444.fragments.SearchFragment;
 
 public class TabsAdapter extends FragmentStatePagerAdapter {
 
@@ -19,7 +19,7 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return SimpleFragment.newInstance(position + 2);
+        return SearchFragment.newInstance(position + 2);
     }
 
     @Override
